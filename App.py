@@ -36,7 +36,7 @@ class App(customtkinter.CTk):
         self.protocol("WM_DELETE_WINDOW", self.on_close)
 
     def create_frames(self):
-        """Create the frames."""
+        # Create frames
         self.home_frame = customtkinter.CTkFrame(self, corner_radius=0, fg_color="transparent")
         self.controller_frame = customtkinter.CTkFrame(self, corner_radius=0, fg_color="transparent")
         self.led_frame = customtkinter.CTkFrame(self, corner_radius=0, fg_color="transparent")
@@ -47,16 +47,16 @@ class App(customtkinter.CTk):
 
     def bind_hotkeys(self):
         # Bind hotkeys for scaling the GUI.
-        self.bind("<Control-equal>", lambda _: self.update_scaling(0.1))  # Ctrl+=
+        self.bind("<Control-equal>", lambda _: self.update_scaling(0.1))   # Ctrl+=
         self.bind("<Control-minus>", lambda _: self.update_scaling(-0.1))  # Ctrl+-
-        self.bind("<Control-0>", lambda _: self.reset_scaling())  # Ctrl+0
+        self.bind("<Control-0>", lambda _: self.reset_scaling())           # Ctrl+0
 
     def set_theme(self, theme):
-        # Apply the selected theme.
+        # Set the theme.
         customtkinter.set_appearance_mode(theme)
 
     def set_scale(self, scale):
-        # Apply the scaling to the application.
+        # Set the scaling.
         customtkinter.set_widget_scaling(scale)
         customtkinter.set_window_scaling(scale)
 
@@ -93,7 +93,7 @@ class App(customtkinter.CTk):
                 frame.grid_forget()
 
     def on_close(self):
-        """Save settings and close the app."""
+        # Save settings and close the app.
         self.settings["window"]["width"] = self.winfo_width()
         self.settings["window"]["height"] = self.winfo_height()
         self.settings["scale"] = self._get_window_scaling()
