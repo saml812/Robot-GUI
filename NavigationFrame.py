@@ -34,8 +34,10 @@ class NavigationFrame(customtkinter.CTkFrame):
         self.ml_button = self.create_nav_button("Machine Learning", "ml", 4, cyborg_image)
 
         # Appearance mode menu
-        self.appearance_mode_menu = customtkinter.CTkOptionMenu(self, values=["Light", "Dark", "System"], font=customtkinter.CTkFont(family="Inter", size=12), 
+        self.appearance_mode_menu = customtkinter.CTkOptionMenu(self, values=["Light", "Dark", "System"], 
+                                                                font=customtkinter.CTkFont(family="Inter", size=12), 
                                                                 command=self.appearance_mode_callback)
+        self.appearance_mode_menu.set(customtkinter.get_appearance_mode())
         self.appearance_mode_menu.grid(row=6, column=0, padx=20, pady=20, sticky="s")
 
     def create_nav_button(self, text, frame_name, row, image):
@@ -48,7 +50,6 @@ class NavigationFrame(customtkinter.CTkFrame):
         return button
 
     def update_selected_button(self, name):
-        # Update button colors based on selection
         self.home_button.configure(fg_color=("gray75", "gray25") if name == "home" else "transparent")
         self.controller_button.configure(fg_color=("gray75", "gray25") if name == "controller" else "transparent")
         self.led_button.configure(fg_color=("gray75", "gray25") if name == "led" else "transparent")
