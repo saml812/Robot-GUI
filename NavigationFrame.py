@@ -11,7 +11,7 @@ class NavigationFrame(customtkinter.CTkFrame):
         self.grid_rowconfigure(6, weight=1)
 
         # load images with light and dark mode image
-        image_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "images/NavigationFrame")
+        image_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "images/Navigation")
         logo_image = customtkinter.CTkImage(Image.open(os.path.join(image_path, "logo.png")), size=(50, 50))
         home_image = customtkinter.CTkImage(light_image=Image.open(os.path.join(image_path, "home_dark.png")),
                                                  dark_image=Image.open(os.path.join(image_path, "home_light.png")), size=(20, 20))
